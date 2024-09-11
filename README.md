@@ -1,18 +1,9 @@
-# React + Vite
-
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 # SaleSphere - Point of Sale Software
 
 **SaleSphere** is a comprehensive, modern POS (Point of Sale) system built with **Django** on the backend and **React.js** on the frontend. It is designed to help businesses manage sales, inventory, and customer transactions efficiently, offering features like real-time data syncing, seamless API integration, and a user-friendly interface.
 
 ## Table of Contents
 
-- [React + Vite](#react--vite)
 - [SaleSphere - Point of Sale Software](#salesphere---point-of-sale-software)
   - [Table of Contents](#table-of-contents)
   - [Features](#features)
