@@ -1,5 +1,6 @@
 import { Outlet } from "react-router-dom";
 import Sidebar from "../components/Sidebar";
+import Navbar from "../components/Navbar";
 
 const Main = () => {
    return (
@@ -8,8 +9,14 @@ const Main = () => {
             {/* <Sidebar /> */}
             <Sidebar />
 
-            <div className="py-20">
-               <Outlet />
+            <div>
+               {/* navbar */}
+               <Navbar />
+
+               {/* outlet */}
+               <div className="py-10">
+                  <Outlet />
+               </div>
             </div>
          </section>
       </>

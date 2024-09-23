@@ -8,9 +8,9 @@ import { LuUsers2 } from "react-icons/lu";
 
 const Sidebar = () => {
    return (
-      <div className="flex flex-col h-screen bg-gray-800 text-white">
+      <div className="flex flex-col h-screen bg-gray-800 text-white border-r border-gray-600">
          {/* Logo Section */}
-         <Link className="p-4 text-3xl text-center font-black">
+         <Link to={'/'} className="p-4 text-3xl text-center font-black">
             <span className="text-green-500">Sale</span>
             <span className="text-lime-500">Sphere</span>
          </Link>
