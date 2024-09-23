@@ -1,11 +1,17 @@
 import { Outlet } from "react-router-dom";
+import Sidebar from "../components/Sidebar";
 
 const Main = () => {
    return (
       <>
-         <div className="min-h-[calc(100vh-124px)] pt-24 mb-8">
-            <Outlet />
-         </div>
+         <section className="min-h-screen grid  lg:grid-cols-[1fr,4fr] relative">
+            {/* <Sidebar /> */}
+            <Sidebar />
+
+            <div className="py-20">
+               <Outlet />
+            </div>
+         </section>
       </>
    );
 };
