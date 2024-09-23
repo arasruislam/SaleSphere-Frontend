@@ -14,7 +14,7 @@ const Main = () => {
                <Navbar />
 
                {/* outlet */}
-               <div className="py-10">
+               <div className="py-6">
                   <Outlet />
                </div>
             </div>
