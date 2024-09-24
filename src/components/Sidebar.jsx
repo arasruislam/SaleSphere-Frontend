@@ -18,29 +18,74 @@ const Sidebar = () => {
          {/* Navigation Items */}
          <div className="flex-grow flex flex-col justify-center items-start space-y-4 pl-4">
             {/* staff */}
-            <NavLink className="text-white text-lg uppercase tracking-wide flex items-center gap-4  hover:border-b-2 hover:border-green-500 transition-all duration-100 w-full pb-2">
+            <NavLink
+               to="/staff"
+               className={({ isActive }) =>
+                  isActive
+                     ? `nav-style border-b-2 border-green-500`
+                     : `nav-style hover:border-b-2 hover:border-green-500`
+               }
+            >
                <LuUsers2 size={25} className="text-green-500" /> Staff
             </NavLink>
             {/* product */}
-            <NavLink to="/product" className="text-white text-lg uppercase tracking-wide flex items-center gap-4 hover:border-b-2 hover:border-green-500 transition-all duration-100 w-full pb-2">
+            <NavLink
+               to="/product"
+               className={({ isActive }) =>
+                  isActive
+                     ? `nav-style border-b-2 border-green-500`
+                     : `nav-style hover:border-b-2 hover:border-green-500`
+               }
+            >
                <AiOutlineProduct size={25} className="text-green-500" />{" "}
                Products
             </NavLink>
             {/* brands */}
-            <NavLink className="text-white text-lg uppercase tracking-wide flex items-center gap-4 hover:border-b-2 hover:border-green-500 transition-all duration-100 w-full pb-2">
+            <NavLink
+               to="/brand"
+               className={({ isActive }) =>
+                  isActive
+                     ? `nav-style border-b-2 border-green-500`
+                     : `nav-style hover:border-b-2 hover:border-green-500`
+               }
+            >
                <BsShopWindow size={25} className="text-green-500" /> Brands
             </NavLink>
+
             {/* Categories */}
-            <NavLink className="text-white text-lg uppercase tracking-wide flex items-center gap-4 hover:border-b-2 hover:border-green-500 transition-all duration-100 w-full pb-2">
+            <NavLink
+               to="/categories"
+               className={({ isActive }) =>
+                  isActive
+                     ? `nav-style border-b-2 border-green-500`
+                     : `nav-style hover:border-b-2 hover:border-green-500`
+               }
+            >
                <GiTreeBranch size={25} className="text-green-500" /> Categories
             </NavLink>
+
             {/* Invoice */}
-            <NavLink className="text-white text-lg uppercase tracking-wide flex items-center gap-4 hover:border-b-2 hover:border-green-500 transition-all duration-100 w-full pb-2">
+            <NavLink
+               to="/invoice"
+               className={({ isActive }) =>
+                  isActive
+                     ? `nav-style border-b-2 border-green-500`
+                     : `nav-style hover:border-b-2 hover:border-green-500`
+               }
+            >
                <FaFileInvoiceDollar size={25} className="text-green-500" />{" "}
                Invoice
             </NavLink>
+
             {/* Suppliers */}
-            <NavLink className="text-white text-lg uppercase tracking-wide flex items-center gap-4 hover:border-b-2 hover:border-green-500 transition-all duration-100 w-full pb-2">
+            <NavLink
+               to="/suppliers"
+               className={({ isActive }) =>
+                  isActive
+                     ? `nav-style border-b-2 border-green-500`
+                     : `nav-style hover:border-b-2 hover:border-green-500`
+               }
+            >
                <PiVan size={25} className="text-green-500" /> Suppliers
             </NavLink>
          </div>

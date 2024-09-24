@@ -1,50 +1,19 @@
 import {
    Button,
-   Checkbox,
    Dropdown,
    DropdownAction,
    DropdownContent,
-   DropdownItem,
    DropdownList,
-   TableHeader,
 } from "keep-react";
-import {
-   Avatar,
-   Badge,
-   Table,
-   TableBody,
-   TableCaption,
-   TableCell,
-   TableHead,
-   TableRow,
-} from "keep-react";
-
-import {
-   ArrowsDownUp,
-   Calendar,
-   CalendarBlank,
-   Crown,
-   Cube,
-   CurrencyDollar,
-   DotsNine,
-   DotsThreeOutline,
-   DotsThreeOutlineVertical,
-   Flag,
-   Funnel,
-   NavigationArrow,
-   Pencil,
-   Plus,
-   Spinner,
-   Tag,
-   Trash,
-} from "phosphor-react";
 
 import { BsShopWindow } from "react-icons/bs";
 import { TiArrowSortedDown } from "react-icons/ti";
 import { GiTreeBranch } from "react-icons/gi";
+import { FaTrashArrowUp } from "react-icons/fa6";
+import { FaRegEdit } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const Product = () => {
-   
    return (
       <>
          <div className="px-4 space-y-4">
@@ -53,7 +22,7 @@ const Product = () => {
                <div>
                   <h3 className="text-2xl font-semibold">Products</h3>
                </div>
-               <div className="flex items-center gap-4">
+               <div className="flex items-center gap-4 z-50">
                   {/* Brands Dropdown */}
                   <Dropdown>
                      <DropdownAction asChild>
@@ -108,115 +77,85 @@ const Product = () => {
 
             {/* bottom */}
             <div>
-               <Table>
-                  <TableHeader>
-                     <TableRow>
-                        <TableHead>
-                           <Checkbox />
-                        </TableHead>
-                        <TableHead>
-                           <p className="flex w-[100px] items-center gap-1.5">
-                              <ArrowsDownUp className="size-4 fill-metal-900 dark:fill-white" />
-                              Type
-                           </p>
-                        </TableHead>
-                        <TableHead>
-                           <p className="flex w-[100px] items-center gap-1.5">
-                              <Calendar className="size-4 fill-metal-900 dark:fill-white" />
-                              Date
-                           </p>
-                        </TableHead>
-                        <TableHead>
-                           <p className="flex items-center gap-1.5">
-                              <Flag className="size-4 fill-metal-900 dark:fill-white" />
-                              Country
-                           </p>
-                        </TableHead>
-                        <TableHead>
-                           <p className="flex items-center gap-1.5">
-                              <Spinner className="size-4 fill-metal-900 dark:fill-white" />
-                              Status
-                           </p>
-                        </TableHead>
-                        <TableHead>
-                           <p className="flex items-center gap-1.5">
-                              <DotsNine className="size-4 fill-metal-900 dark:fill-white" />
-                              Quant.
-                           </p>
-                        </TableHead>
-                        <TableHead>
-                           <p className="flex w-[100px] items-center gap-1.5">
-                              <CurrencyDollar className="size-4 fill-metal-900 dark:fill-white" />
-                              Total Price
-                           </p>
-                        </TableHead>
-                        <TableHead>
-                           <p className="flex w-[120px] items-center gap-1.5">
-                              <NavigationArrow className="size-4 fill-metal-900 dark:fill-white" />
-                              Location
-                           </p>
-                        </TableHead>
-                        <TableHead></TableHead>
-                     </TableRow>
-                  </TableHeader>
-                  {/* <TableBody>
-                     <TableRow key={item.id}>
-                        <TableCell>
-                           <Checkbox />
-                        </TableCell>
-                        <TableCell>{item.type}</TableCell>
-                        <TableCell>
-                           <div>
-                              <p>{item.date.day}</p>
-                              <p className="text-body-5 font-normal text-metal-600 dark:text-metal-300">
-                                 {item.date.time}
-                              </p>
-                           </div>
-                        </TableCell>
-                        <TableCell className="flex items-center justify-center">
-                           <img src={item.country} alt="flag" />
-                        </TableCell>
-                        <TableCell>
-                           <Badge
-                              showIcon
-                              className="text-body-4"
-                              color={
-                                 item.status === "Delivered"
-                                    ? "success"
-                                    : item.status === "In Transit"
-                                    ? "error"
-                                    : "warning"
-                              }
-                           >
-                              {item.status}
-                           </Badge>
-                        </TableCell>
-                        <TableCell className="text-center">
-                           {item.quant}
-                        </TableCell>
-                        <TableCell className="text-center">
-                           {item.price.toLocaleString()}
-                        </TableCell>
-                        <TableCell>{item.location}</TableCell>
-                        <TableCell>
-                           <Dropdown>
-                              <DropdownAction asChild>
-                                 <button>
-                                    <DotsThreeOutlineVertical className="size-4 fill-metal-900 dark:fill-white" />
-                                 </button>
-                              </DropdownAction>
-                              <DropdownContent className="max-w-[200px] border border-metal-100 p-3">
-                                 <DropdownList>
-                                    <DropdownItem>Edit</DropdownItem>
-                                    <DropdownItem>Move</DropdownItem>
-                                    <DropdownItem>Delete</DropdownItem>
-                                 </DropdownList>
-                              </DropdownContent>
-                           </Dropdown>
-                        </TableCell>
-                     </TableRow>
-                  </TableBody> */}
-               </Table>
+               <div className="overflow-x-scroll">
+                  <table className="table text-white">
+                     {/* head */}
+                     <thead className="bg-gray-700 text-white">
+                        <tr>
+                           <th></th>
+                           <th>Product ID</th>
+                           <th>SKU</th>
+                           <th>Product Name</th>
+                           <th>Quantity</th>
+                           <th>Price</th>
+                           <th>Location</th>
+                           <th>Action</th>
+                        </tr>
+                     </thead>
+                     <tbody>
+                        <tr className="hover">
+                           <th>
+                              <div className="avatar">
+                                 <div className="mask mask-squircle w-10">
+                                    <img src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" />
+                                 </div>
+                              </div>
+                           </th>
+                           <td>101</td>
+                           <td>102391283</td>
+                           <td>CTee</td>
+                           <td>1200</td>
+                           <td>20$</td>
+                           <td>Dhaka</td>
+                           <td className="flex items-center gap-4 mt-3">
+                              <Link to="/product/add_product">
+                                 <FaRegEdit
+                                    size={20}
+                                    className="text-green-500 cursor-pointer"
+                                 />
+                              </Link>
+                              <FaTrashArrowUp
+                                 size={20}
+                                 onClick={() =>
+                                    document
+                                       .getElementById("delete")
+                                       .showModal()
+                                 }
+                                 className="text-red-500 cursor-pointer"
+                              />
+                           </td>
+                        </tr>
+                     </tbody>
+                  </table>
+               </div>
+
+               {/* delete item popup */}
+               <dialog
+                  id="delete"
+                  className="modal modal-bottom sm:modal-middle"
+               >
+                  <div className="modal-box">
+                     <h3 className="font-bold text-lg">Hello!</h3>
+                     <p className="py-4">
+                        Press ESC key or click the button below to close
+                     </p>
+                     <div className="modal-action">
+                        <form method="dialog">
+                           {/* if there is a button in form, it will close the modal */}
+                           <button className="btn">Close</button>
+                        </form>
+                     </div>
+                  </div>
+               </dialog>
+            </div>
+
+            {/* pagination */}
+            <div className="join mt-6 text-center flex justify-center mx-auto">
+               <button className="join-item btn">1</button>
+               <button className="join-item btn">2</button>
+               <button className="join-item btn btn-disabled">...</button>
+               <button className="join-item btn">99</button>
+               <button className="join-item btn">100</button>
             </div>
          </div>
       </>
